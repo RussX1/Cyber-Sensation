@@ -1,68 +1,653 @@
+# FNF-Android-Porting:
 
-![Kade Engine logo](assets/preload/images/KadeEngineLogo.png)
+The things im using when i port a mod to android
 
-[![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Windows?label=windows%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-windows/branch/master/artifacts) [![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Macos?label=macOS%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-macos/branch/master/artifacts)  [![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Linux?label=linux%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-linux/branch/master/artifacts) [![AppVeyor](https://img.shields.io/appveyor/build/daniel11420/KadeEngineWeb?label=html5&20build)](https://ci.appveyor.com/project/daniel11420/KadeEngineWeb) [![Discord](https://img.shields.io/discord/808039740464300104?label=discord)](https://discord.gg/MG6GQFh52U) [![GitHub issues](https://img.shields.io/github/issues/KadeDev/Kade-Engine)](https://github.com/KadeDev/Kade-Engine/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/KadeDev/Kade-Engine)](https://github.com/KadeDev/Kade-Engine/pulls) []() []()
+**This should be used for the FNF 0.2.8 update and engines that have this version of FNF**
 
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/KadeDev/Kade-Engine/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/KadeDev/Kade-Engine) ![Lines of code](https://img.shields.io/tokei/lines/github/KadeDev/Kade-Engine) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows%2C%20macOS%2C%20linux%2C%20html5-blue) ![GitHub all releases](https://img.shields.io/github/downloads/KadeDev/Kade-Engine/total) ![GitHub](https://img.shields.io/github/license/KadeDev/Kade-Engine) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/KadeDev/Kade-Engine?include_prereleases&label=latest%20version) 
+### PC compile instructions For Android:
 
-# Friday Night Funkin': Kade Engine
-## Friday Night Funkin'
-**Friday Night Funkin'** is a rhythm game originally made for Ludum Dare 47 "Stuck In a Loop".
+1. Download
+* [JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) - Download the version `18` of it
+* [Android Studio](https://developer.android.com/studio) - I recomend you to download the latest version
+* [NDK](https://developer.android.com/ndk/downloads/older_releases?hl=fi) - Download the version `r21e` (This is the version recomended by Lime)
 
-Links: **[itch.io page](https://ninja-muffin24.itch.io/funkin) ⋅ [Newgrounds](https://www.newgrounds.com/portal/view/770371) ⋅ [source code on GitHub](https://github.com/ninjamuffin99/Funkin)**
-> Uh oh! Your tryin to kiss ur hot girlfriend, but her MEAN and EVIL dad is trying to KILL you! He's an ex-rockstar, the only way to get to his heart? The power of music... 
+2. Install JDK, Android Studio 
+Unzip the NDK (the NDK does not need to be installed because its a zip archive)
 
-## Kade Engine
-**Kade Engine** is a mod for Friday Night Funkin', including a full engine rework, replays, and more.
+3. We need to set up Android Studio for this go to android studio and find android sdk (in settings -> Appearance & Behavior -> system settings -> android sdk)
+![first pic](https://user-images.githubusercontent.com/59097731/104179652-44346000-541d-11eb-8ad1-1e4dfae304a8.PNG)
+![second pic](https://user-images.githubusercontent.com/59097731/104179943-a9885100-541d-11eb-8f69-7fb5a4bfdd37.PNG)
 
-Links: **[GameBanana mod page](https://gamebanana.com/gamefiles/16761) ⋅ [play in browser](https://funkin.puyo.xyz) ⋅ [latest stable release](https://github.com/KadeDev/Kade-Engine/releases/latest) ⋅ [latest development build (windows)](https://ci.appveyor.com/project/KadeDev/kade-engine-windows/branch/master/artifacts) ⋅ [latest development build (macOS)](https://ci.appveyor.com/project/KadeDev/kade-engine-macos/branch/master/artifacts) ⋅ [latest development build (linux)](https://ci.appveyor.com/project/KadeDev/kade-engine-linux/branch/master/artifacts)**
+4. Run command `lime setup android` in CMD/PowerShell (You need to insert the program paths)
 
-**REMEMBER**: This is a **mod**. This is not the vanilla game and should be treated as a **modification**. This is not and probably will never be official, so don't get confused.
+5. Open project in CMD/PowerShell `cd (path to fnf source)`
+And run command `lime build android -final`
+The apk will be generated in this path (path to source)\export\release\android\bin\app\build\outputs\apk\debug
+_____________________________________
 
-## Website ([KadeDev.github.io/kade-engine/](https://KadeDev.github.io/Kade-Engine/))
-If you're looking for documentation, changelogs, or guides, you can find those on the Kade Engine website.
+## Instructions:
 
-# Previews ([skip](#features))
+1. You Need to install extension-androidtools
 
-![Tutorial (Hard) on Downscroll](https://user-images.githubusercontent.com/15311104/113989685-fa5aea80-9850-11eb-9180-f5819a774c79.gif) ![Milf (Hard) on Downscroll](https://user-images.githubusercontent.com/15311104/113990845-2c208100-9852-11eb-8e6d-f1c9e8439871.gif)
+To Install it You Need To Open Command prompt/PowerShell And Type
+```cmd
+haxelib git extension-androidtools https://github.com/jigsaw-4277821/extension-androidtools.git
+```
 
-![Roses (Hard) on Upscroll](https://user-images.githubusercontent.com/15311104/113993573-e31dfc00-9854-11eb-82ae-1f29dc8a0b04.png)
+2. Download the repository code and paste it in your source code folder
 
-![Milf (Hard) on Downscroll](https://user-images.githubusercontent.com/15311104/113991654-f4660900-9852-11eb-8c3d-f3927571f19b.png)
+3. You Need to add these things in project.xml
 
-![He malding](https://user-images.githubusercontent.com/15311104/113993693-02b52480-9855-11eb-9975-eb8a7a1be8d1.png)
+On This Line
+```xml
+	<!--Mobile-specific-->
+	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false" />
+```
 
-![Free Play selection screen](https://i.imgur.com/LR0eWIC.png)
+Replace It With
+```xml
+	<!--Mobile-specific-->
+	<window if="mobile" orientation="landscape" fullscreen="true" resizable="false" allow-shaders="true" require-shaders="true" allow-high-dpi="true" />
+```
 
-![Options Menu](https://i.imgur.com/LBXW9C1.png)
+Add
+```xml
+	<assets path="mobile" rename="assets/mobile" if="mobile" /> <!-- to not have the mobile assets in another builds -saw -->
+```
 
-# Features
+Then, After the Libraries, or where the packeges are located add
+```xml
+	<haxelib name="extension-androidtools" if="android" />
+```
 
- - **New Input System**
-	 - An improved input system, similar to Quaver or Etterna, with less delays, less dropped inputs and other improvements.
- - **More information during gameplay**
-	 - While you're playing, we show you information about how you're doing, such as your accuracy, combo break count, notes per second, and your grade/rating.
- - **Customizable keybinds**
-	 - Instead of being forced to use WASD and the arrow keys, you can customize the keybinds to any keys you want!
- - **Replays** (in beta)
-	 - Have you ever gotten a crazy score but didn't record? The replay system solves that: it automatically saves a "replay" of your gameplay every time you complete a song, which you can play back inside of the game. 
-	 - Replays just store information about what you're doing, they don't actually record the screen -- so they take up way less space on your disk than videos.
- - **Audio offset**
-	 - If your headphones are delayed, you can set an offset in the options menu to line the game up with the delay and play with synced audio like intended.
+Add
+```xml
+	<!--Allow working memory greater than 1 Gig-->
+	<haxedef name="HXCPP_GC_BIG_BLOCKS" />
 
-# Credits
-### Friday Night Funkin'
- - [ninjamuffin99](https://twitter.com/ninja_muffin99) - Programming
- - [PhantomArcade3K](https://twitter.com/phantomarcade3k) and [Evilsk8r](https://twitter.com/evilsk8r) - Art
- - [Kawai Sprite](https://twitter.com/kawaisprite) - Music
+	<!--Always enable Null Object Reference check-->
+	<haxedef name="HXCPP_CHECK_POINTER" />
+	<haxedef name="HXCPP_STACK_LINE" />
 
-This game was made with love to Newgrounds and its community. Extra love to Tom Fulp.
-### Kade Engine
-- [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
-- [The contributors](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
+	<!--Android Permissions-->
+	<config:android permission="android.permission.ACCESS_NETWORK_STATE" />
+	<config:android permission="android.permission.ACCESS_WIFI_STATE" />
+	<config:android permission="android.permission.INTERNET" />
+	<config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<config:android permission="android.permission.READ_EXTERNAL_STORAGE" />
 
+	<!--Android Gradle-->
+	<config:android gradle-version="7.5.1" gradle-plugin="7.3.1" />
+```
 
-### Shoutouts
-- [GWebDev](https://github.com/GrowtopiaFli) - Video Code
-- [Rozebud](https://github.com/ThatRozebudDude) - Ideas (that I stole)
-- [Puyo](https://github.com/daniel11420) - Setting up appveyor and a lot of other help
+4. Setup Controls.hx
+
+After these lines
+```haxe
+import flixel.input.actions.FlxActionSet;
+import flixel.input.keyboard.FlxKey;
+```
+
+Add
+```haxe
+#if mobile
+import mobile.flixel.FlxButton;
+import mobile.flixel.FlxHitbox;
+import mobile.flixel.FlxVirtualPad;
+#end
+```
+
+Before these lines
+```haxe
+override function update()
+{
+	super.update();
+}
+```
+
+Add
+```haxe
+	#if mobile
+	public var trackedInputsUI:Array<FlxActionInput> = [];
+	public var trackedInputsNOTES:Array<FlxActionInput> = [];
+
+	public function addButtonNOTES(action:FlxActionDigital, button:FlxButton, state:FlxInputState)
+	{
+		var input:FlxActionInputDigitalIFlxInput = new FlxActionInputDigitalIFlxInput(button, state);
+		trackedInputsNOTES.push(input);
+		action.add(input);
+	}
+
+	public function addButtonUI(action:FlxActionDigital, button:FlxButton, state:FlxInputState)
+	{
+		var input:FlxActionInputDigitalIFlxInput = new FlxActionInputDigitalIFlxInput(button, state);
+		trackedInputsUI.push(input);
+		action.add(input);
+	}
+
+	public function setHitBox(Hitbox:FlxHitbox)
+	{
+		inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, Hitbox.buttonUp, state));
+		inline forEachBound(Control.NOTE_DOWN, (action, state) -> addButtonNOTES(action, Hitbox.buttonDown, state));
+		inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, Hitbox.buttonLeft, state));
+		inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, Hitbox.buttonRight, state));
+	}
+
+	public function setVirtualPadUI(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
+	{
+		switch (DPad)
+		{
+			case UP_DOWN:
+				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.UI_DOWN, (action, state) -> addButtonUI(action, VirtualPad.buttonDown, state));
+			case LEFT_RIGHT:
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, VirtualPad.buttonRight, state));
+			case UP_LEFT_RIGHT:
+				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, VirtualPad.buttonRight, state));
+			case LEFT_FULL | RIGHT_FULL:
+				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.UI_DOWN, (action, state) -> addButtonUI(action, VirtualPad.buttonDown, state));
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, VirtualPad.buttonRight, state));
+			case BOTH_FULL:
+				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.UI_DOWN, (action, state) -> addButtonUI(action, VirtualPad.buttonDown, state));
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, VirtualPad.buttonRight, state));
+				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp2, state));
+				inline forEachBound(Control.UI_DOWN, (action, state) -> addButtonUI(action, VirtualPad.buttonDown2, state));
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addButtonUI(action, VirtualPad.buttonLeft2, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addButtonUI(action, VirtualPad.buttonRight2, state));
+			case NONE: // do nothing
+		}
+
+		switch (Action)
+		{
+			case A:
+				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonUI(action, VirtualPad.buttonA, state));
+			case B:
+				inline forEachBound(Control.BACK, (action, state) -> addButtonUI(action, VirtualPad.buttonB, state));
+			case A_B | A_B_C | A_B_E | A_B_X_Y | A_B_C_X_Y | A_B_C_X_Y_Z | A_B_C_D_V_X_Y_Z:
+				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonUI(action, VirtualPad.buttonA, state));
+				inline forEachBound(Control.BACK, (action, state) -> addButtonUI(action, VirtualPad.buttonB, state));
+			case NONE: // do nothing
+		}
+	}
+
+	public function setVirtualPadNOTES(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
+	{
+		switch (DPad)
+		{
+			case UP_DOWN:
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addButtonNOTES(action, VirtualPad.buttonDown, state));
+			case LEFT_RIGHT:
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonRight, state));
+			case UP_LEFT_RIGHT:
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonRight, state));
+			case LEFT_FULL | RIGHT_FULL:
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addButtonNOTES(action, VirtualPad.buttonDown, state));
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonRight, state));
+			case BOTH_FULL:
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
+				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addButtonNOTES(action, VirtualPad.buttonDown, state));
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonLeft, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonRight, state));
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp2, state));
+				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addButtonNOTES(action, VirtualPad.buttonDown2, state));
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonLeft2, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonRight2, state));
+			case NONE: // do nothing
+		}
+
+		switch (Action)
+		{
+			case A:
+				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonA, state));
+			case B:
+				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, VirtualPad.buttonB, state));
+			case A_B | A_B_C | A_B_E | A_B_X_Y | A_B_C_X_Y | A_B_C_X_Y_Z | A_B_C_D_V_X_Y_Z:
+				inline forEachBound(Control.ACCEPT, (action, state) -> addButtonNOTES(action, VirtualPad.buttonA, state));
+				inline forEachBound(Control.BACK, (action, state) -> addButtonNOTES(action, VirtualPad.buttonB, state));
+			case NONE: // do nothing
+		}
+	}
+
+	public function removeVirtualControlsInput(Tinputs:Array<FlxActionInput>)
+	{
+		for (action in this.digitalActions)
+		{
+			var i = action.inputs.length;
+			while (i-- > 0)
+			{
+				var x = Tinputs.length;
+				while (x-- > 0)
+				{
+					if (Tinputs[x] == action.inputs[i])
+						action.remove(action.inputs[i]);
+				}
+			}
+		}
+	}
+	#end
+```
+
+And replace these lines (you can skip this if the mod isn't on psych engine)
+```haxe
+	public function bindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		var copyKeys:Array<FlxKey> = keys.copy();
+		for (i in 0...copyKeys.length) {
+			if(i == NONE) copyKeys.remove(i);
+		}
+
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, state) -> addKeys(action, copyKeys, state));
+		#else
+		forEachBound(control, function(action, state) addKeys(action, copyKeys, state));
+		#end
+	}
+
+	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		var copyKeys:Array<FlxKey> = keys.copy();
+		for (i in 0...copyKeys.length) {
+			if(i == NONE) copyKeys.remove(i);
+		}
+
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, _) -> removeKeys(action, copyKeys));
+		#else
+		forEachBound(control, function(action, _) removeKeys(action, copyKeys));
+		#end
+	}
+```
+
+With
+```haxe
+	#if !mobile
+	public function bindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		var copyKeys:Array<FlxKey> = keys.copy();
+		for (i in 0...copyKeys.length)
+			if(i == NONE)
+				copyKeys.remove(i);
+
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, state) -> addKeys(action, copyKeys, state));
+		#else
+		forEachBound(control, function(action, state) addKeys(action, copyKeys, state));
+		#end
+	}
+
+	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		var copyKeys:Array<FlxKey> = keys.copy();
+		for (i in 0...copyKeys.length)
+			if(i == NONE)
+				copyKeys.remove(i);
+
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, _) -> removeKeys(action, copyKeys));
+		#else
+		forEachBound(control, function(action, _) removeKeys(action, copyKeys));
+		#end
+	}
+	#else
+	public function bindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, state) -> addKeys(action, keys, state));
+		#else
+		forEachBound(control, function(action, state) addKeys(action, keys, state));
+		#end
+	}
+
+	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+	{
+		#if (haxe >= "4.0.0")
+		inline forEachBound(control, (action, _) -> removeKeys(action, keys));
+		#else
+		forEachBound(control, function(action, _) removeKeys(action, keys));
+		#end
+	}	
+	#end
+```
+
+5. Setup MusicBeatState.hx
+
+In the lines you import things add
+```haxe
+#if mobile
+import mobile.MobileControls;
+import mobile.flixel.FlxVirtualPad;
+import flixel.FlxCamera;
+import flixel.input.actions.FlxActionInput;
+import flixel.util.FlxDestroyUtil;
+#end
+```
+
+After these lines
+```haxe
+inline function get_controls():Controls
+	return PlayerSettings.player1.controls;
+```
+
+Add
+```haxe
+	#if mobile
+	var mobileControls:MobileControls;
+	var virtualPad:FlxVirtualPad;
+	var trackedInputsMobileControls:Array<FlxActionInput> = [];
+	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
+
+	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
+	{
+		if (virtualPad != null)
+			removeVirtualPad();
+
+		virtualPad = new FlxVirtualPad(DPad, Action);
+		add(virtualPad);
+
+		controls.setVirtualPadUI(virtualPad, DPad, Action);
+		trackedInputsVirtualPad = controls.trackedInputsUI;
+		controls.trackedInputsUI = [];
+	}
+
+	public function removeVirtualPad()
+	{
+		if (trackedInputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+
+		if (virtualPad != null)
+			remove(virtualPad);
+	}
+
+	public function addMobileControls(DefaultDrawTarget:Bool = true)
+	{
+		if (mobileControls != null)
+			removeMobileControls();
+
+		mobileControls = new MobileControls();
+
+		switch (MobileControls.mode)
+		{
+			case 'Pad-Right' | 'Pad-Left' | 'Pad-Custom':
+				controls.setVirtualPadNOTES(mobileControls.virtualPad, RIGHT_FULL, NONE);
+			case 'Pad-Duo':
+				controls.setVirtualPadNOTES(mobileControls.virtualPad, BOTH_FULL, NONE);
+			case 'Hitbox':
+				controls.setHitBox(mobileControls.hitbox);
+			case 'Keyboard': // do nothing
+		}
+
+		trackedInputsMobileControls = controls.trackedInputsNOTES;
+		controls.trackedInputsNOTES = [];
+
+		var camControls:FlxCamera = new FlxCamera();
+		FlxG.cameras.add(camControls, DefaultDrawTarget);
+		camControls.bgColor.alpha = 0;
+
+		mobileControls.cameras = [camControls];
+		mobileControls.visible = false;
+		add(mobileControls);
+	}
+
+	public function removeMobileControls()
+	{
+		if (trackedInputsMobileControls != [])
+			controls.removeVirtualControlsInput(trackedInputsMobileControls);
+
+		if (mobileControls != null)
+			remove(mobileControls);
+	}
+
+	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true)
+	{
+		if (virtualPad != null)
+		{
+			var camControls:FlxCamera = new FlxCamera();
+			FlxG.cameras.add(camControls, DefaultDrawTarget);
+			camControls.bgColor.alpha = 0;
+			virtualPad.cameras = [camControls];
+		}
+	}
+	#end
+
+	override function destroy()
+	{
+		#if mobile
+		if (trackedInputsMobileControls != [])
+			controls.removeVirtualControlsInput(trackedInputsMobileControls);
+
+		if (trackedInputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		#end
+
+		super.destroy();
+
+		#if mobile
+		if (virtualPad != null)
+		{
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+			virtualPad = null;
+		}
+
+		if (mobileControls != null)
+		{
+			mobileControls = FlxDestroyUtil.destroy(mobileControls);
+			mobileControls = null;
+		}
+		#end
+	}
+```
+
+6. Setup MusicBeatSubstate.hx
+
+In the lines you import things add
+```haxe
+#if mobile
+import mobile.flixel.FlxVirtualPad;
+import flixel.FlxCamera;
+import flixel.input.actions.FlxActionInput;
+import flixel.util.FlxDestroyUtil;
+#end
+```
+
+After these lines
+```haxe
+inline function get_controls():Controls
+	return PlayerSettings.player1.controls;
+```
+
+Add
+```haxe
+	#if mobile
+	var virtualPad:FlxVirtualPad;
+	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
+
+	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
+	{
+		if (virtualPad != null)
+			removeVirtualPad();
+
+		virtualPad = new FlxVirtualPad(DPad, Action);
+		add(virtualPad);
+
+		controls.setVirtualPadUI(virtualPad, DPad, Action);
+		trackedInputsVirtualPad = controls.trackedInputsUI;
+		controls.trackedInputsUI = [];
+	}
+
+	public function removeVirtualPad()
+	{
+		if (trackedInputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+
+		if (virtualPad != null)
+			remove(virtualPad);
+	}
+
+	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true)
+	{
+		if (virtualPad != null)
+		{
+			var camControls:FlxCamera = new FlxCamera();
+			FlxG.cameras.add(camControls, DefaultDrawTarget);
+			camControls.bgColor.alpha = 0;
+			virtualPad.cameras = [camControls];
+		}
+	}
+	#end
+
+	override function destroy()
+	{
+		#if mobile
+		if (trackedInputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		#end
+
+		super.destroy();
+
+		#if mobile
+		if (virtualPad != null)
+		{
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+			virtualPad = null;
+		}
+		#end
+	}
+```
+
+And somehow you finished adding the android controls to your mod now on every state/substate add
+```haxe
+#if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
+
+//if you want to remove it at some moment use
+#if mobile
+removeVirtualPad();
+#end
+
+//if you want it to have a camera
+#if mobile
+addVirtualPadCamera();
+#end
+
+//in states, these need to be added before super.create();
+//in substates, in fuction new at the last line add these
+
+//on Playstate.hx after all of the
+//obj.cameras = [...];
+//things, add
+#if mobile
+addMobileControls();
+#end
+
+//if you want to remove it at some moment use
+#if mobile
+removeMobileControls();
+#end
+
+//to make the controls visible the code is
+#if mobile
+mobileControls.visible = true;
+#end
+
+//to make the controls invisible the code is
+#if mobile
+mobileControls.visible = false;
+#end
+```
+
+7. Prevent the Android BACK Button
+
+in TitleState.hx
+
+After
+```haxe
+override public function create():Void
+```
+
+Add
+```haxe
+#if android
+FlxG.android.preventDefaultKeys = [BACK];
+#end
+```
+
+8. Set An action to the BACK Button
+
+You can set one with
+```haxe
+#if android || FlxG.android.justReleased.BACK #end
+```
+
+9. On `sys.FileSystem`, `sys.io.File` Stuff
+
+This is not working with app storage but on phone storage it will work with this
+```haxe
+SUtil.getStorageDirectory() + 
+```
+This will make the game use the phone storage but you will have to add one thing in your source
+
+In Main.hx before 
+```haxe
+addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+```
+
+Add
+```haxe
+SUtil.checkPermissions();
+```
+
+This will check for android storage permisions and the `assets` or `mods` directories
+
+10. On Crash Application Alert
+
+On Main.hx after
+```haxe
+public function new()
+```
+
+Add
+```haxe
+SUtil.uncaughtErrorHandler();
+```
+
+11. File Saver
+
+This is a feature to save files with sys.io.File in phone storage in `saves` directory
+
+```haxe
+SUtil.saveContent("your file name", ".txt", "lololol");
+```
+
+13. Do an action when you press on the screen
+
+```haxe
+#if mobile
+var justTouched:Bool = false;
+
+for (touch in FlxG.touches.list)
+	if (touch.justPressed)
+		justTouched = true;
+
+if (justTouched)
+	//Your code
+#end
+```
+
+## Credits:
+* Saw (M.A. JIGSAW) me - Doing the rest of the code, utils, pad buttons and other things
+* luckydog7 - Original code for mobile controls and hitbox graphic shape original code.
+* Goldie - Pad designer.
